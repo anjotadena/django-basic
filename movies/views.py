@@ -8,3 +8,8 @@ def index(request):
     # output = ', '.join([m.title for m in movies])
     # return HttpResponse(output)
     return render(request, 'movies/index.html', { 'movies': movies })
+
+def detail(request, movie_id):
+    movie = Movie.objects.get(id=movie_id)
+
+    return render(request, 'movies/detail.html', { 'movie': movie })
