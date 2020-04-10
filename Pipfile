@@ -10,6 +10,7 @@ pylint = "*"
 django = "*"
 pylint-django = "*"
 django-tastypie = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.6"
