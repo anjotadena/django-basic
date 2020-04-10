@@ -56,6 +56,6 @@ N/A
 
 ## Credits
 
-** Made with love and care **
+#### Made with love and care
 
-** Special thanks to my beautiful wife(Mayflor) and my beautify daughter(Anya Xyra) **
+#### Special thanks to my beautiful wife(Mayflor) and my beautify daughter(Anya Xyra)
