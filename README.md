@@ -53,6 +53,9 @@ Master [git repository](https://github.com/anjotadena/django-basic):
 
 N/A
 
-*** Made with love and care ***
 
-**** Special thanks to my beautiful wife(Mayflor) and my beautify daughter(Anya Xyra) ****
+## Credits
+
+** Made with love and care **
+
+** Special thanks to my beautiful wife(Mayflor) and my beautify daughter(Anya Xyra) **
