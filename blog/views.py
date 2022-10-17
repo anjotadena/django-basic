@@ -1,12 +1,13 @@
 from django.utils import timezone
-from django.shortcuts import render
-from blog.models import Post, Comment
-from blog.forms import PostForm, CommentForm
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import (
     TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView)
+
+from blog.models import Post, Comment
+from blog.forms import PostForm, CommentForm
 
 # Create your views here.
 
@@ -59,3 +60,27 @@ class DraftListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         # Get unpublished
         return Post.objects.filter(published_at_isnull=True).order_by('created_at')
+
+
+@login_required
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+
+    # Render comment form    
+    if request.method != 'POST':
+        form = CommentForm()
+    
+        return render(request, 'blog/comment_form.html', {'form': form})
+
+    # Process/Save comment form values
+    form = CommentForm(request.POST)
+    
+    if not form.is_valid():
+        return render(request, 'blog/comment_form.html', {'form': form})
+    
+    comment = form.save(commit=False)
+    comment.post = post
+    comment.save()
+    
+    return redirect('post_detail', pk=post.pk)
+    
