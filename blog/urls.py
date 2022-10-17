@@ -15,4 +15,6 @@ urlpatterns = [
         views.add_comment_to_post.as_view(), name="add_comment_to_post"),
     url(r'^comment/(?P<pk?\d+)/approve/$',
         views.comment_approve.as_view(), name="comment_approve"),
+    url(r'^comment/(?P<pk?\d+)/remove/$',
+        views.comment_remove.as_view(), name="comment_remove"),
 ]
